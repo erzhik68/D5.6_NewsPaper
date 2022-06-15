@@ -1,0 +1,32 @@
+{% extends 'default.html' %}
+
+{% load custom_filters %}
+
+{% block title %} Post {% endblock title %}
+
+{% block content %}
+<table>
+    <thead>
+        <th>
+            Заголовок
+        </th>
+        <th>
+            Дата публикации
+        </th>
+        <th>
+            Текст статьи
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ post.post_title|censor:'*' }}
+        </td>
+        <td>
+            {{ post.post_date_time|date:'d M Y H:i' }}
+        </td>
+        <td>
+            {{ post.post_text|censor:'*' }}
+        </td>
+    </tr>
+</table>
+{% endblock content %}
